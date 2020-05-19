@@ -66,8 +66,8 @@ int main(void) {
 		}
 	}
 
-	
-	scanf_s("%d %d",&x, &y);
+
+	scanf_s("%d %d", &x, &y);
 	print_map(field, x, y);
 
 	return 0;
@@ -76,119 +76,17 @@ int main(void) {
 
 // 주변 지도 출력
 void print_map(char field[SIZE][SIZE], int x, int y) {
-	if (y < 10) {
-		if (x < 10) {
-			for (int i = 0; i < y + 10; i++) {
-				for (int j = 0; j < x + 10; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
+	
+	for (int i = y < 10 ? 0 : y - 10; i < (y < 90 ? y + 10 : 100); i++) {
+		for (int j = x < 10 ? 0 : x - 10; j < (x < 90 ? x + 10 : 100); j++) {
+			printf("%c ", field[i][j]);
+
+			if (y == i + 1 && x == j + 1) {
+				printf("o ");
+				continue;
 			}
 		}
-		else if (x < 90) {
-			for (int i = 0; i < y + 10; i++) {
-				for (int j = x - 10; j < x + 10; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
-			}
-		}
-		else {
-			for (int i = 0; i < y + 10; i++) {
-				for (int j = x - 10; j < SIZE; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
-			}
-		}
-	}
-	else if (y < 90) {
-		if (x < 10) {
-			for (int i = y - 10; i < y + 10; i++) {
-				for (int j = 0; j < x + 10; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
-			}
-		}
-		else if (x < 90) {
-			for (int i = y - 10; i < y + 10; i++) {
-				for (int j = x - 10; j < x + 10; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
-			}
-		}
-		else {
-			for (int i = y - 10; i < y + 10; i++) {
-				for (int j = x - 10; j < SIZE; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
-			}
-		}
-	}
-	else {
-		if (x < 10) {
-			for (int i = y; i < SIZE; i++) {
-				for (int j = 0; j < x + 10; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
-			}
-		}
-		else if (x < 90) {
-			for (int i = y; i < SIZE; i++) {
-				for (int j = 0; j < x + 10; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
-			}
-		}
-		else {
-			for (int i = y; i < SIZE; i++) {
-				for (int j = x - 10; j < x + 10; j++) {
-					if (y == i + 1 && x == j + 1) {
-						printf("o ");
-						continue;
-					}
-					printf("%c ", field[i][j]);
-				}
-				printf("\n");
-			}
-		}
+		printf("\n");
 	}
 
 }
