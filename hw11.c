@@ -22,12 +22,12 @@ struct explorer {
 
 int main(void) {
 	struct explorer e1;
-	char field[SIZE][SIZE];	// Áöµµ
-	char move;	// ÀÌµ¿(aswd)
-	int x, y;	// ÇöÀç ÁÂÇ¥
+	char field[SIZE][SIZE];	// ì§€ë„
+	char move;	// ì´ë™(aswd)
+	int x, y;	// í˜„ì¬ ì¢Œí‘œ
 
 
-	// Áöµµ »ı¼º
+	// ì§€ë„ ìƒì„±
 	srand(time(NULL));
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j < SIZE; j++) {
@@ -51,8 +51,8 @@ int main(void) {
 	}
 
 
-	// ÀÌ¸§ ÀúÀå ¹× ±¸Á¶Ã¼ ÃÊ±âÈ­
-	printf("ÇÃ·¹ÀÌ¾îÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+	// ì´ë¦„ ì €ì¥ ë° êµ¬ì¡°ì²´ ì´ˆê¸°í™”
+	printf("í”Œë ˆì´ì–´ì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 	scanf_s("%s", e1.name, 128);
 	e1.score = 0;
 	e1.gold = 0;
@@ -60,7 +60,7 @@ int main(void) {
 	e1.health = 100;
 	e1.luck = 0.01;
 
-	// ½ÃÀÛ À§Ä¡ ¼³Á¤
+	// ì‹œì‘ ìœ„ì¹˜ ì„¤ì •
 	x = rand() % 100;
 	y = rand() % 100;
 	while (field[y][x] != '_') {
@@ -70,14 +70,14 @@ int main(void) {
 
 	e1.luck = 0.08;
 
-	// ÀÌµ¿
+	// ì´ë™
 	do {
 		system("cls");
-		// Á¤º¸ Ãâ·Â
-		printf("'%s'´ÔÀÇ ÇöÀç À§Ä¡ (%d, %d)\n", e1.name, x, y);
-		printf("Á¡¼ö: %4d\tµ·: %4d\n½Ä·®: %4d\tÃ¼·Â:%4d\n¿î: %6.2f\n\n", e1.score, e1.gold, e1.food, e1.health, e1.luck);
+		// ì •ë³´ ì¶œë ¥
+		printf("'%s'ë‹˜ì˜ í˜„ì¬ ìœ„ì¹˜ (%d, %d)\n", e1.name, x, y);
+		printf("ì ìˆ˜: %4d\tëˆ: %4d\nì‹ëŸ‰: %4d\tì²´ë ¥:%4d\nìš´: %6.2f\n\n", e1.score, e1.gold, e1.food, e1.health, e1.luck);
 
-		// ÁÖº¯ Áöµµ Ãâ·Â
+		// ì£¼ë³€ ì§€ë„ ì¶œë ¥
 		print_map(field, x, y);
 		if (field[y][x] == '#') {
 			char key = getch();
@@ -94,7 +94,7 @@ int main(void) {
 				}
 				else {
 					e1.health -= 30;
-					printf("À¯Àû¿¡ ÀÔÀåÇÏ½Ç ¼ö ¾ø½À´Ï´Ù.");
+					printf("ìœ ì ì— ì…ì¥í•˜ì‹¤ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 				}
 			}
 		}
@@ -103,10 +103,10 @@ int main(void) {
 		switch (move) {
 		case 'a': {
 			if (x == 0) {
-				printf("±× ¹æÇâÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("ê·¸ ë°©í–¥ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 			}
 			else if (field[y][x - 1] == 'T') {
-				printf("±× ¹æÇâÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("ê·¸ ë°©í–¥ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 				e1.health -= 10;
 			}
 			else {
@@ -116,10 +116,10 @@ int main(void) {
 		}
 		case 'd': {
 			if (x == SIZE - 1) {
-				printf("±× ¹æÇâÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("ê·¸ ë°©í–¥ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 			}
 			else if (field[y][x + 1] == 'T') {
-				printf("±× ¹æÇâÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("ê·¸ ë°©í–¥ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 				e1.health -= 10;
 			}
 			else {
@@ -129,10 +129,10 @@ int main(void) {
 		}
 		case 'w': {
 			if (y == 0) {
-				printf("±× ¹æÇâÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("ê·¸ ë°©í–¥ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 			}
 			else if (field[y - 1][x] == 'T') {
-				printf("±× ¹æÇâÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("ê·¸ ë°©í–¥ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 				e1.health -= 10;
 			}
 			else {
@@ -142,10 +142,10 @@ int main(void) {
 		}
 		case 's': {
 			if (y == SIZE - 1) {
-				printf("±× ¹æÇâÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("ê·¸ ë°©í–¥ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 			}
 			else if (field[y + 1][x] == 'T') {
-				printf("±× ¹æÇâÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("ê·¸ ë°©í–¥ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 				e1.health -= 10;
 			}
 			else {
@@ -159,7 +159,7 @@ int main(void) {
 
 		e1.food--;
 
-		// ±İ or ´ÙÀÌ¾Æ¸óµå -> µ· È¹µæ, ÁöÇü º¯°æ, Á¡¼ö
+		// ê¸ˆ or ë‹¤ì´ì•„ëª¬ë“œ -> ëˆ íšë“, ì§€í˜• ë³€ê²½, ì ìˆ˜
 		if (field[y][x] == '+') {
 			e1.gold += 10;
 			field[y][x] = '_';
@@ -177,14 +177,14 @@ int main(void) {
 	} while (move != 'x' && e1.food > 0 && e1.health > 0);
 
 	system("cls");
-	printf("%s´ÔÀÇ ÃÖÁ¾ Á¡¼ö´Â %dÁ¡ÀÔ´Ï´Ù.\n\n", e1.name, e1.score + e1.gold * 2);
+	printf("%së‹˜ì˜ ìµœì¢… ì ìˆ˜ëŠ” %dì ì…ë‹ˆë‹¤.\n\n", e1.name, e1.score + e1.gold * 2);
 
 
 	return 0;
 }
 
 
-// ÁÖº¯ Áöµµ Ãâ·Â
+// ì£¼ë³€ ì§€ë„ ì¶œë ¥
 void print_map(char field[SIZE][SIZE], int x, int y) {
 
 	for (int i = y < 10 ? 0 : y - 10; i <= (y < 90 ? y + 10 : SIZE - 1); i++) {
@@ -202,48 +202,63 @@ void print_map(char field[SIZE][SIZE], int x, int y) {
 }
 
 
-// ¸¶À» ¸Ş´º
+// ë§ˆì„ ë©”ë‰´
 void village(struct explorer e1, int x, int y) {
 	char menu;
 
 	do {
 		system("cls");
-		// Á¤º¸ Ãâ·Â
-		printf("'%s'´ÔÀÇ ÇöÀç À§Ä¡ (%d, %d)\n", e1.name, x, y);
-		printf("Á¡¼ö: %4d\tµ·: %4d\n½Ä·®: %4d\tÃ¼·Â:%4d\n¿î: %6.2f\n\n", e1.score, e1.gold, e1.food, e1.health, e1.luck);
+		// ì •ë³´ ì¶œë ¥
+		printf("'%s'ë‹˜ì˜ í˜„ì¬ ìœ„ì¹˜ (%d, %d)\n", e1.name, x, y);
+		printf("ì ìˆ˜: %4d\tëˆ: %4d\nì‹ëŸ‰: %4d\tì²´ë ¥:%4d\nìš´: %6.2f\n\n", e1.score, e1.gold, e1.food, e1.health, e1.luck);
 
 
-		printf("[ ¸¶À» ]\n");
-		printf("1. Food ±¸ÀÔ\n2. Health È¸º¹\n3. Luck Áõ°¡\n4. ¸¶À» ¶°³ª±â\n");
+		printf("[ ë§ˆì„ ]\n");
+		printf("1. Food êµ¬ì…\n2. Health íšŒë³µ\n3. Luck ì¦ê°€\n4. ë§ˆì„ ë– ë‚˜ê¸°\n");
 		menu = getche();
 		switch (menu) {
 		case '1': {
 			if (e1.food <= 98) {
-				e1.food += 2;
-				e1.gold--;
+				if(e1.gold > 0){
+					e1.food += 2;
+					e1.gold--;
+				}
+				else{
+					printf("Goldê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
+				}	
 			}
 			else {
-				printf("Food´Â 100°³ ÀÌ»ó º¸À¯ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("FoodëŠ” 100ê°œ ì´ìƒ ë³´ìœ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 			}
 			break;
 		}
 		case '2': {
 			if (e1.health <= 95) {
-				e1.health += 5;
-				e1.gold--;
+				if(e1.gold > 0){
+					e1.health += 5;
+					e1.gold--;
+				}
+				else{
+					printf("Goldê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
+				}
 			}
 			else {
-				printf("Health´Â 100°³ ÀÌ»ó º¸À¯ÇÒ ¼ö ¾ø½À´Ï´Ù.\n");
+				printf("HealthëŠ” 100ê°œ ì´ìƒ ë³´ìœ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 			}
 			break;
 		}
 		case '3': {
 			if (e1.luck <= 1) {
-				e1.luck *= 2;
-				e1.gold -= 100;
+				if(e1.gold > 99){
+					e1.luck *= 2;
+					e1.gold -= 100;
+				}
+				else{
+					printf("Goldê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.\n");
+				}
 			}
 			else {
-				printf("LuckÀÇ ÃÖ´ëÄ¡´Â 1ÀÔ´Ï´Ù.");
+				printf("Luckì˜ ìµœëŒ€ì¹˜ëŠ” 1ì…ë‹ˆë‹¤.");
 			}
 			break;
 		}
@@ -252,19 +267,19 @@ void village(struct explorer e1, int x, int y) {
 }
 
 
-// À¯Àû ¸Ş´º
+// ìœ ì  ë©”ë‰´
 void ruin(struct explorer e1, int x, int y) {
 	char menu;
 
 	do {
 		system("cls");
-		// Á¤º¸ Ãâ·Â
-		printf("'%s'´ÔÀÇ ÇöÀç À§Ä¡ (%d, %d)\n", e1.name, x, y);
-		printf("Á¡¼ö: %4d\tµ·: %4d\n½Ä·®: %4d\tÃ¼·Â:%4d\n¿î: %6.2f\n\n", e1.score, e1.gold, e1.food, e1.health, e1.luck);
+		// ì •ë³´ ì¶œë ¥
+		printf("'%s'ë‹˜ì˜ í˜„ì¬ ìœ„ì¹˜ (%d, %d)\n", e1.name, x, y);
+		printf("ì ìˆ˜: %4d\tëˆ: %4d\nì‹ëŸ‰: %4d\tì²´ë ¥:%4d\nìš´: %6.2f\n\n", e1.score, e1.gold, e1.food, e1.health, e1.luck);
 
 
-		printf("[ À¯Àû ]\n");
-		printf("1. Gold È¹µæ\n2. Score È¹µæ\n3. À¯Àû ¶°³ª±â\n");
+		printf("[ ìœ ì  ]\n");
+		printf("1. Gold íšë“\n2. Score íšë“\n3. ìœ ì  ë– ë‚˜ê¸°\n");
 		menu = getche();
 		switch (menu) {
 		case '1': {
